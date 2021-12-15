@@ -27,6 +27,7 @@ class Bio(models.Model):
     exp_years = models.IntegerField(default=0)
     num_projects = models.IntegerField(default=0)
     num_works = models.IntegerField(default=0)
+    title = models.CharField(max_length=30, blank=True)
 
 class Title(models.Model):
     title_en = models.CharField(max_length=100)

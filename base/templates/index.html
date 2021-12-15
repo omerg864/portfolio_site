@@ -25,13 +25,13 @@
     <!-- Personal  Styling -->
     <link rel="stylesheet" href="static/css/style.css">
     
-    <title>Biplov JHA</title>
+    <title>{{bio.f_name}} {{bio.l_name}}</title>
   </head>
   <body>
 <!-- ------------- HEADER -------------------->
     <header class="header" id="header">
         <nav class="nav container navbar-expand-lg">
-            <a href="#" class="nav__logo navbar-brand ml-3">Biplov JHA</a>
+            <a href="#" class="nav__logo navbar-brand ml-3">{{bio.f_name}} {{bio.l_name}}</a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-default" aria-controls="navbar-default" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
@@ -97,25 +97,36 @@
 
                 <div class="home__content grid">
                     <div class="home__social">
+                        {% if bio.linked_in != '' %}
                         <a href={{bio.linked_in}} target="_blank" class="home__social-icon" id="myLinkedIn">
                             <i class="uil uil-linkedin-alt"></i>
                         </a>
+                        {% endif %}
+                        {% if bio.instagram != '' %}
 
                         <a href={{bio.instagram}} target="_blank" class="home__social-icon" id="myInstagram">
                             <i class="uil uil-instagram"></i>
                         </a>
+                        {% endif %}
+                        {% if bio.git_hub != '' %}
 
                         <a href={{bio.git_hub}} target="_blank" class="home__social-icon" id="myGithub">
                             <i class="uil uil-github-alt"></i>
                         </a>
+                        {% endif %}
+                        {% if bio.facebook != '' %}
 
                         <a href={{bio.facebook}} target="_blank" class="home__social-icon" id="myFacebook">
                             <i class="uil uil-facebook-f"></i>
                         </a>
+                        {% endif %}
+                        {% if bio.twitter != '' %}
 
                         <a href={{bio.twitter}} target="_blank" class="home__social-icon" id="myTwitter">
                             <i class="uil uil-twitter-alt"></i>
                         </a>
+                        {% endif %}
+
                     </div>
                 </div>
 
@@ -123,7 +134,7 @@
                     <small class="home__welcome s-color"> Welcome to my Portfolio Website! </small>
                     <h1 class="home__title"> Hey I'm </h1>
                     <div id="typewriter"></div>
-                    <h3 class="home__subtitle" id="home-bio">An engineer enthusiast about technology and web development. Passionate on learning new. Adore Classical Musics </h3>
+                    <h3 class="home__subtitle" id="home-bio">{{ bio.short_intro }}</h3>
                     <a href="#contact" class="button button--flex">
                         Contact Me <i class="uil uil-message button__icon"></i>
                     </a>
@@ -146,27 +157,29 @@
             <span class="section__subtitle"> My Introduction </span>
 
             <div class="about__container container grid">
-                <img src="assets/img/ceremony.JPG" alt="my achievement photo" class="about__img">
+                {% if bio.photo != '' %}
+                <img src={{bio.photo}} alt="my photo" class="about__img">
+                {% endif %}
 
                 <div class="about__data">
                     <p class="about__description" id="home-about"> 
-                        Web developer, with extensive knowledge and years of experience, working with web technologies and designing. Delivering quality works. Professionally I am an Electrical engineer as well.
+                        {{ bio.introduction }}
                     </p>
                 </div>
 
                 <div class="about__info">
                     <div>
-                        <span class="about__info-title"> 02+ </span>
+                        <span class="about__info-title"> {{ bio.exp_years }}+ </span>
                         <span class="about__info-name"> Years <br> Experience </span>
                     </div>
 
                     <div>
-                        <span class="about__info-title"> 10+ </span>
+                        <span class="about__info-title"> {{ bio.num_projects }}+ </span>
                         <span class="about__info-name"> Completed <br> Projects </span>
                     </div>
 
                     <div>
-                        <span class="about__info-title"> 02+ </span>
+                        <span class="about__info-title"> {{ bio.num_works }}+ </span>
                         <span class="about__info-name"> Companies <br> Worked </span>
                     </div>
                 </div>
@@ -186,218 +199,19 @@
 
             <div class="skills__container container grid">
                 <div class="row" id="skillset_container">
-                    <!-- Skill 1 -->
+
+                    {% for skill in skills%}
                     <div class="skills__container-card">
                         <div class="card_skill shadow2">
                             <div class="imgBx">
-                                <img src="https://res.cloudinary.com/bjha/image/upload/v1627831745/skillset%20logos/HTML_5-595b40b65ba036ed117d4260_fnyo1z.svg" alt="HTML logo">
+                                <img src={{skill.photo}} alt="logo">
                             </div>
                             <div class="contentBx">
-                                <h2> HTML </h2>
+                                <h2> {{skill.skill_en}} </h2>
                             </div>
                         </div>
                     </div>
-
-                    <!-- Skill 2 -->
-                    <div class="skills__container-card">
-                        <div class="card_skill shadow2">
-                            <div class="imgBx">
-                                <img src="https://res.cloudinary.com/bjha/image/upload/v1627831742/skillset%20logos/Css3-595b40b65ba036ed117d3eb8_jiqifm.svg" alt="HTML logo">
-                            </div>
-                            <div class="contentBx">
-                                <h2> CSS </h2>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Skill 3 -->
-                    <div class="skills__container-card">
-                        <div class="card_skill shadow2">
-                            <div class="imgBx">
-                                <img src="https://res.cloudinary.com/bjha/image/upload/v1627831744/skillset%20logos/javascript-seeklogo.com_wthmgd.svg" alt="HTML logo">
-                            </div>
-                            <div class="contentBx">
-                                <h2> Javascript </h2>
-                            </div>
-                        </div>
-                    </div>
-
-
-                    <!-- Skill 4 -->
-                    <div class="skills__container-card">
-                        <div class="card_skill shadow2">
-                            <div class="imgBx">
-                                <img src="https://res.cloudinary.com/bjha/image/upload/v1627831742/skillset%20logos/bootstrap-5-seeklogo.com_rz32ih.svg" alt="HTML logo">
-                            </div>
-                            <div class="contentBx">
-                                <h2> Bootstrap </h2>
-                            </div>
-                        </div>
-                    </div>
-
-
-                    <!-- Skill 5 -->
-                    <div class="skills__container-card">
-                        <div class="card_skill shadow2">
-                            <div class="imgBx">
-                                <img src="https://res.cloudinary.com/bjha/image/upload/v1627831745/skillset%20logos/python-seeklogo.com_sbuevg.svg" alt="HTML logo">
-                            </div>
-                            <div class="contentBx">
-                                <h2> Python </h2>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <!-- Skill 5 -->
-                    <div class="skills__container-card">
-                        <div class="card_skill shadow2">
-                            <div class="imgBx">
-                                <img src="https://res.cloudinary.com/bjha/image/upload/v1627831742/skillset%20logos/django-seeklogo.com_uu8wtb.svg" alt="HTML logo">
-                            </div>
-                            <div class="contentBx">
-                                <h2> Django </h2>
-                            </div>
-                        </div>
-                    </div>
-
-
-                    <!-- Skill 6 -->
-                    <div class="skills__container-card">
-                        <div class="card_skill shadow2">
-                            <div class="imgBx">
-                                <img src="https://res.cloudinary.com/bjha/image/upload/v1627831743/skillset%20logos/git-seeklogo.com_eqv1dl.svg" alt="HTML logo">
-                            </div>
-                            <div class="contentBx">
-                                <h2> Git </h2>
-                            </div>
-                        </div>
-                    </div>
-
-
-                    <!-- Skill 7 -->
-                    <div class="skills__container-card">
-                        <div class="card_skill shadow2">
-                            <div class="imgBx">
-                                <img src="https://res.cloudinary.com/bjha/image/upload/v1627831742/skillset%20logos/github-seeklogo.com_yhhbou.svg" alt="HTML logo">
-                            </div>
-                            <div class="contentBx">
-                                <h2> Github </h2>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Skill 8 -->
-                    <div class="skills__container-card">
-                        <div class="card_skill shadow2">
-                            <div class="imgBx">
-                                <img src="https://res.cloudinary.com/bjha/image/upload/v1627831746/skillset%20logos/visual-studio-code-seeklogo.com_ps85dh.svg" alt="HTML logo">
-                            </div>
-                            <div class="contentBx">
-                                <h2> VS Code </h2>
-                            </div>
-                        </div>
-                    </div>
-
-
-                    <!-- Skill 9 -->
-                    <div class="skills__container-card">
-                        <div class="card_skill shadow2">
-                            <div class="imgBx">
-                                <img src="https://res.cloudinary.com/bjha/image/upload/v1627831745/skillset%20logos/tux-seeklogo.com_aiyr1d.svg" alt="HTML logo">
-                            </div>
-                            <div class="contentBx">
-                                <h2> Linux </h2>
-                            </div>
-                        </div>
-                    </div>
-
-
-                    <!-- Skill 10 -->
-                    <div class="skills__container-card">
-                        <div class="card_skill shadow2">
-                            <div class="imgBx">
-                                <img src="https://res.cloudinary.com/bjha/image/upload/v1627837663/skillset%20logos/Microsoft_Office_logo__282019_E2_80_93present_29_pswha1.svg" alt="HTML logo">
-                            </div>
-                            <div class="contentBx">
-                                <h2> Office </h2>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Skill 11 -->
-                    <div class="skills__container-card">
-                        <div class="card_skill shadow2">
-                            <div class="imgBx">
-                                <img src="https://res.cloudinary.com/bjha/image/upload/v1627837103/skillset%20logos/Google_Docs_icon__282020_29_ix96yl.svg" alt="HTML logo">
-                            </div>
-                            <div class="contentBx">
-                                <h2> Docs </h2>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Skill 12 -->
-                    
-
-                    <!-- Skill 13 -->
-                    <div class="skills__container-card">
-                        <div class="card_skill shadow2">
-                            <div class="imgBx">
-                                <img src="https://res.cloudinary.com/bjha/image/upload/v1627831745/skillset%20logos/matlab-seeklogo.com_zbczqr.svg" alt="HTML logo">
-                            </div>
-                            <div class="contentBx">
-                                <h2> MATLAB </h2>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Skill 14 -->
-                    <div class="skills__container-card">
-                        <div class="card_skill shadow2">
-                            <div class="imgBx">
-                                <img src="https://res.cloudinary.com/bjha/image/upload/v1627831746/skillset%20logos/Proteus_Design_Suite_Atom_Logo_nxdhe8.png" alt="HTML logo">
-                            </div>
-                            <div class="contentBx">
-                                <h2> Proteus </h2>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Skill 15 -->
-                    <div class="skills__container-card">
-                        <div class="card_skill shadow2">
-                            <div class="imgBx">
-                                <img src="https://res.cloudinary.com/bjha/image/upload/v1627831743/skillset%20logos/autocad-logo-C9817CB828-seeklogo.com_mscdmi.png" alt="HTML logo">
-                            </div>
-                            <div class="contentBx">
-                                <h2> AutoCAD </h2>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Skill 16 -->
-                    <div class="skills__container-card">
-                        <div class="card_skill shadow2">
-                            <div class="imgBx">
-                                <img src="https://res.cloudinary.com/bjha/image/upload/v1627832183/skillset%20logos/adobe-premiere-seeklogo.com_ifitqg.svg" alt="HTML logo">
-                            </div>
-                            <div class="contentBx">
-                                <h2> Premiere </h2>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Skill 17 -->
-                    <div class="skills__container-card">
-                        <div class="card_skill shadow2">
-                            <div class="imgBx">
-                                <img src="https://res.cloudinary.com/bjha/image/upload/v1627832183/skillset%20logos/adobe-photoshop-cc-seeklogo.com_wtay5k.svg" alt="HTML logo">
-                            </div>
-                            <div class="contentBx">
-                                <h2> Photoshop </h2>
-                            </div>
-                        </div>
-                    </div>
+                    {% endfor %}
                 </div>
             </div>
         </section>
@@ -419,6 +233,7 @@
                             <div class="container py-2">
 
                                 <!-- Timeline item 1 -->
+                                {% for education in educations %}
                                 <div class="row">
                                     <!-- Timeline design -->
                                     <div class="col-auto text-center flex-column d-sm-flex">
@@ -432,7 +247,7 @@
                                         <h5>
                                             <span class="badge qualification__calendar">
                                                 <i class="uil uil-calendar-alt qualification__calendar-icon"></i>
-                                                2021
+                                                {{education.year|date:"Y"}}
                                             </span>
                                         </h5>
 
@@ -449,164 +264,19 @@
                                             <div class="card-body">
                                                 <div class="task">
                                                     <div class="abstract">
-                                                        <h3 class="qualification__title"> CS50 </h3>
-                                                        <p class="qualification__subtitle"> Harvard - MOOC </p>
+                                                        <h3 class="qualification__title"> {{ education.title }} </h3>
+                                                        <p class="qualification__subtitle"> {{ education.sub_title }} </p>
                                                     </div>
                                                     <div class="details">
-                                                        <p class="qualification__subtitle"> Built Web-design skills </p>
+                                                        <p class="qualification__subtitle"> {{ education.info }} </p>
                                                     </div>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
-
-                                <!-- Timeline item 2 -->
-                                <div class="row">
-                                    <!-- Timeline design -->
-                                    <div class="col-auto text-center flex-column d-sm-flex">
-                                        <div class="row h-50 qualification__journey">
-                                            <div class="col">
-                                                <span class="qualification__line"></span>
-                                            </div>
-                                            <div class="col">&nbsp;</div>
-                                        </div>
-
-                                        <h5>
-                                            <span class="badge qualification__calendar">
-                                                <i class="uil uil-calendar-alt qualification__calendar-icon"></i>
-                                                2021
-                                            </span>
-                                        </h5>
-
-                                        <div class="row h-50 qualification__journey">
-                                            <div class="col">
-                                                <span class="qualification__line"></span>
-                                            </div>
-                                            <div class="col">&nbsp;</div>
-                                        </div>
-                                    </div>
-                                    <!-- Timeline content Events -->
-                                    <div class="col py-2">
-                                        <div class="card education-card transparent_card mirror-face shadow2">
-                                            <div class="card-body">
-                                                <div class="task">
-                                                    <div class="abstract">
-                                                        <h3 class="qualification__title"> Bachelor in Engineering </h3>
-                                                        <p class="qualification__subtitle"> Pulchowk Campus, IoE, Tribhuvan University </p>
-                                                    </div>
-                                                    <div class="details">
-                                                        <p class="qualification__subtitle"> Bachelor in Electrical Engineering. </p>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                 <!-- Timeline item 3 -->
-                                 <div class="row">
-                                    <!-- Timeline design -->
-                                    <div class="col-auto text-center flex-column d-sm-flex">
-                                        <div class="row h-50 qualification__journey">
-                                            <div class="col">
-                                                <span class="qualification__line"></span>
-                                            </div>
-                                            <div class="col">&nbsp;</div>
-                                        </div>
-
-                                        <h5>
-                                            <span class="badge qualification__calendar">
-                                                <i class="uil uil-calendar-alt qualification__calendar-icon"></i>
-                                                2016
-                                            </span>
-                                        </h5>
-
-                                        <div class="row h-50 qualification__journey">
-                                            <div class="col">
-                                                <span class="qualification__line"></span>
-                                            </div>
-                                            <div class="col">&nbsp;</div>
-                                        </div>
-                                    </div>
-                                    <!-- Timeline content Events -->
-                                    <div class="col py-2">
-                                        <div class="card education-card transparent_card mirror-face shadow2">
-                                            <div class="card-body">
-                                                <div class="task">
-                                                    <div class="abstract">
-                                                        <h3 class="qualification__title"> High School </h3>
-                                                        <p class="qualification__subtitle">Kathmandu Bernhardt Higher Secondary School</p>
-                                                    </div>
-                                                    <div class="details">
-                                                        <p class="qualification__subtitle"> Studied Physics, Chemistry, Mathematics, Computer Science and English. </p>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                 <!-- Timeline item 4 -->
-                                 <div class="row">
-                                    <!-- Timeline design -->
-                                    <div class="col-auto text-center flex-column d-sm-flex">
-                                        <div class="row h-50 qualification__journey">
-                                            <div class="col">
-                                                <span class="qualification__line"></span>
-                                            </div>
-                                            <div class="col">&nbsp;</div>
-                                        </div>
-
-                                        <h5>
-                                            <span class="badge qualification__calendar">
-                                                <i class="uil uil-calendar-alt qualification__calendar-icon"></i>
-                                                2014
-                                            </span>
-                                        </h5>
-
-                                        <div class="row h-50 qualification__journey">
-                                            <div class="col">
-                                                <span class="qualification__line"></span>
-                                            </div>
-                                            <div class="col">&nbsp;</div>
-                                        </div>
-                                    </div>
-                                    <!-- Timeline content Events -->
-                                    <div class="col py-2">
-                                        <div class="card education-card transparent_card mirror-face shadow2">
-                                            <div class="card-body">
-                                                <div class="task">
-                                                    <div class="abstract">
-                                                        <h3 class="qualification__title"> Secondary School </h3>
-                                                        <p class="qualification__subtitle"> Nightingale International Higher Secondary School </p>
-                                                    </div>
-                                                    <!-- <div class="details">
-                                                        <p class="qualification__subtitle"> This addittional contents gets revealed on hover. </p>
-                                                    </div> -->
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                 <!-- Timeline item end -->
-                                 <div class="row">
-                                    <!-- Timeline design -->
-                                    <div class="col-auto text-center flex-column d-sm-flex">
-                                        <div class="row h-50 qualification__journey">
-                                            <div class="col">
-                                                <span class="qualification__start">
-                                                    <i class="uil uil-rocket qualification__start-icon"></i>
-                                                </span>
-                                            </div>
-                                            <div class="col">&nbsp;</div>
-                                        </div>
-                                    </div>
-                                    <!-- Timeline content Events -->
-                                    <div class="col py-2"></div>
-                                </div>
-                            </div>
+                                {% endfor %}
+                            </div>      
                         </div>
                     </div>
 
@@ -619,6 +289,7 @@
                         <div id="expreience_timeline">
                             <div class="container py-2">
                                 <!-- Timeline item 1 -->
+                                {% for experience in experiences %}
                                 <div class="row">
                                     <!-- Timeline design -->
                                     <div class="col-auto text-center flex-column d-sm-flex">
@@ -632,7 +303,7 @@
                                         <h5>
                                             <span class="badge qualification__calendar">
                                                 <i class="uil uil-calendar-alt qualification__calendar-icon"></i>
-                                                2020
+                                                {{experience.year|date:"Y"}}
                                             </span>
                                         </h5>
 
@@ -649,121 +320,18 @@
                                             <div class="card-body">
                                                 <div class="task">
                                                     <div class="abstract">
-                                                        <h3 class="qualification__title"> StartUp - Co-owner </h3>
-                                                        <p class="qualification__subtitle"> Ejalo Academy </p>
+                                                        <h3 class="qualification__title"> {{ education.title }} </h3>
+                                                        <p class="qualification__subtitle"> {{ education.sub_title }} </p>
                                                     </div>
                                                     <div class="details">
-                                                        <p class="qualification__subtitle"> A startup based on providing knowledge to students stuck at home and unable to reach educational resources. Provision of resources through the virtual platform and constant engagement. </p>
+                                                        <p class="qualification__subtitle"> {{ education.info }} </p>
                                                     </div>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
-
-                                 <!-- Timeline item 2 -->
-                                 <div class="row">
-                                    <!-- Timeline design -->
-                                    <div class="col-auto text-center flex-column d-sm-flex">
-                                        <div class="row h-50 qualification__journey">
-                                            <div class="col">
-                                                <span class="qualification__line"></span>
-                                            </div>
-                                            <div class="col">&nbsp;</div>
-                                        </div>
-
-                                        <h5>
-                                            <span class="badge qualification__calendar">
-                                                <i class="uil uil-calendar-alt qualification__calendar-icon"></i>
-                                                2019
-                                            </span>
-                                        </h5>
-
-                                        <div class="row h-50 qualification__journey">
-                                            <div class="col">
-                                                <span class="qualification__line"></span>
-                                            </div>
-                                            <div class="col">&nbsp;</div>
-                                        </div>
-                                    </div>
-                                    <!-- Timeline content Events -->
-                                    <div class="col py-2">
-                                        <div class="card education-card transparent_card mirror-face shadow2">
-                                            <div class="card-body">
-                                                <div class="task">
-                                                    <div class="abstract">
-                                                        <h3 class="qualification__title"> Intern </h3>
-                                                        <p class="qualification__subtitle"> Nepal  Electricity Authority </p>
-                                                    </div>
-                                                    <!-- <div class="details">
-                                                        <p class="qualification__subtitle"> This addittional contents gets revealed on hover. </p>
-                                                    </div> -->
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                 <!-- Timeline item 3 -->
-                                 <div class="row">
-                                    <!-- Timeline design -->
-                                    <div class="col-auto text-center flex-column d-sm-flex">
-                                        <div class="row h-50 qualification__journey">
-                                            <div class="col">
-                                                <span class="qualification__line"></span>
-                                            </div>
-                                            <div class="col">&nbsp;</div>
-                                        </div>
-
-                                        <h5>
-                                            <span class="badge qualification__calendar">
-                                                <i class="uil uil-calendar-alt qualification__calendar-icon"></i>
-                                                2019
-                                            </span>
-                                        </h5>
-
-                                        <div class="row h-50 qualification__journey">
-                                            <div class="col">
-                                                <span class="qualification__line"></span>
-                                            </div>
-                                            <div class="col">&nbsp;</div>
-                                        </div>
-                                    </div>
-                                    <!-- Timeline content Events -->
-                                    <div class="col py-2">
-                                        <div class="card education-card transparent_card mirror-face shadow2">
-                                            <div class="card-body">
-                                                <div class="task">
-                                                    <div class="abstract">
-                                                        <h3 class="qualification__title"> Coordinator </h3>
-                                                        <p class="qualification__subtitle"> Electrical Club </p>
-                                                    </div>
-                                                    <div class="details">
-                                                        <p class="qualification__subtitle"> Led a team of enthusiastic person and conducted many events as well as a seminar entitled Electrical Foresight. </p>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <!-- Timeline item end -->
-                                <div class="row">
-                                    <!-- Timeline design -->
-                                    <div class="col-auto text-center flex-column d-sm-flex">
-                                        <div class="row h-50 qualification__journey">
-                                            <div class="col">
-                                                <span class="qualification__start">
-                                                    <i class="uil uil-rocket qualification__start-icon"></i>
-                                                </span>
-                                            </div>
-                                            <div class="col">&nbsp;</div>
-                                        </div>
-                                    </div>
-                                    <!-- Timeline content Events -->
-                                    <div class="col py-2"></div>
-                                </div>
-                            </div>
+                                {% endfor %}
                         </div>
                     </div>
                 </div>
@@ -865,7 +433,7 @@
 
                         <div>
                             <h3 class="contact__title">Call Me</h3>
-                            <span class="contact__subtitle">+01-989898986</span>
+                            <span class="contact__subtitle">{{ bio.phone }}</span>
                         </div>
                     </div>
 
@@ -874,7 +442,7 @@
 
                         <div>
                             <h3 class="contact__title">E-mail</h3>
-                            <span class="contact__subtitle">mail@email.com</span>
+                            <span class="contact__subtitle">{{ bio.email }}</span>
                         </div>
                     </div>
 
@@ -882,7 +450,7 @@
                         <i class="uil uil-location-pin-alt contact__icon"></i>
                         <div>
                             <h3 class="contact__title">Address</h3>
-                            <span class="contact__subtitle"> Shikoku, Ehime - Japan</span>
+                            <span class="contact__subtitle"> {{ bio.address }}</span>
                         </div>
                     </div>
                 </div>
@@ -891,7 +459,7 @@
                 <div class="col-lg-6 pl-lg-4 mt-lg-0 mt-6 contact-form" id="message-me">
                     <h2 class="contact__title"> Interested to work together? - <span> Let's talk </span></h2>
 
-                    <form action="#" method="POST" class="cf">
+                    <form method="POST" class="cf">
                         <div class="row">
                             <div class="col-lg-6">
                                 <input type="text" name="message-name" class="form-control form__color mb-30 cf" placeholder="Your Name">
@@ -924,7 +492,7 @@
             <div class="footer__container container grid">
 
                 <div>
-                    <h1 class="footer__title"> BIPLOV </h1>
+                    <h1 class="footer__title"> {{ bio.f_name }} </h1>
                     <span class="footer__subtitle"> Electrical Engineer and Developer</span>
                 </div>
 
@@ -965,7 +533,7 @@
                 </div>
             </div>
 
-            <p class="footer__copy">&#169; BJ. All rights reserved</p>
+            <p class="footer__copy">&#169; OG. All rights reserved</p>
         </div>
     </footer>
   
