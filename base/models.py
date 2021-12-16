@@ -57,3 +57,5 @@ class Project(models.Model):
     title = models.CharField(max_length=100)
     info = models.TextField(blank=True)
     photo = models.CharField(max_length=300, blank=True)
+    link = models.CharField(max_length=500, blank=True)
+    action = models.CharField(max_length=20, blank=True)
