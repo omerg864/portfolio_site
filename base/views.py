@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from .models import Bio, Title, Skill, Education, Experience, Project
-
+from django.template.defaulttags import register
 
 def base(request):
     bio = Bio.objects.all().first()
@@ -18,3 +18,10 @@ def base(request):
         'projects': projects,
     }
     return render(request, "index.html", context)
+
+
+@register.filter
+def num_string(num):
+    if num < 10:
+        return "0" + str(num)
+    return str(num)
