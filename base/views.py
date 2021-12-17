@@ -9,9 +9,9 @@ def base(request):
     bio = Bio.objects.all().first()
     titles = Title.objects.all()
     skills = Skill.objects.all()
-    educations = Education.objects.all()
-    experiences = Experience.objects.all()
-    projects = Project.objects.all()
+    educations = Education.objects.order_by("-year")
+    experiences = Experience.objects.order_by("-year")
+    projects = Project.objects.order_by("-date")
     context = {
         'bio': bio,
         'titles': titles,

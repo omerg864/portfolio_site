@@ -34,6 +34,7 @@ class Bio(models.Model):
 class Title(models.Model):
     title_en = models.CharField(max_length=100)
     title_he = models.CharField(max_length=100, blank=True)
+    num = models.IntegerField(default=0)
 
     def __str__(self):
         return self.title_en
@@ -42,6 +43,7 @@ class Skill(models.Model):
     skill_en = models.CharField(max_length=30)
     photo = models.CharField(max_length=300, blank=True)
     info = models.CharField(max_length=30, blank=True)
+    num = models.IntegerField(default=0)
 
     def __str__(self):
         return self.skill_en
