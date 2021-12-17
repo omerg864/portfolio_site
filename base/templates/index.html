@@ -207,7 +207,7 @@
                                 <img src={{skill.photo}} alt="logo">
                             </div>
                             <div class="contentBx">
-                                <h2> {{skill.skill_en}} </h2>
+                                <h2><span class="skills-text" style="font-size: 32px"> {{skill.skill_en}} </span></h2>
                             </div>
                         </div>
                     </div>
@@ -508,12 +508,19 @@
     <a href="#" class="scrollup" id="scroll-up">
         <i class="uil uil-arrow-up scrollup__icon"></i>
     </a>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 
     <script>
         window.onload = function(){
         if('{{ message }}' !== ''){
             alert('{{ message }}');
         }
+        $('.skills-text').each(function(){
+            while ($(this).width() > 140){
+                $(this).css("font-size", parseInt($(this).css("font-size")) - 1)
+                console.log($(this).width())
+            }
+        });
     }
     </script>
 
