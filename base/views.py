@@ -26,8 +26,8 @@ def base(request):
             name = request.POST.get('message-name')
             email = request.POST.get('message-email')
             subject = request.POST.get('message-subject')
-            sent = send_mail(subject, f'name: {name}\n Email: {email}\n{message}', EMAIL_HOST_USER, [bio.email], fail_silently=False)
-            if sent = 1:
+            sent = send_mail(subject, f'name: {name}\nEmail: {email}\n{message}', EMAIL_HOST_USER, [bio.email], fail_silently=False)
+            if sent == 1:
                 context["message"] = "Message sent successfully!"
             else:
                 context["message"] = "Error: Message did not send!"
