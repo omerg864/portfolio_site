@@ -49,17 +49,17 @@ def make_three(queryset):
     for i in range(int(len(queryset) / 3) + added_num):
         newlist.append({"year1": "", "year2": "", "year3": "", "title1": "", "title2": "", "title3": "", "sub_title1": "", "sub_title2": "", "sub_title3": "", "info1": "", "info2": "", "info3": "", "link1": "", "link2": "", "link3": ""})
     index = 0
-    index2 = 1
+    index2 = 0
     for item in queryset:
         print(item)
-        newlist[index]["year" + str(index2)] = item.year
-        newlist[index][f"title{index2}"] = item.title
-        newlist[index][f"sub_title{index2}"] = item.sub_title
-        newlist[index][f"info{index2}"] = item.info
-        newlist[index][f"link{index2}"] = item.link
-        if i % 2 == 0 and i != 0:
+        newlist[index]["year" + str(index2 + 1)] = item.year
+        newlist[index][f"title{index2 + 1}"] = item.title
+        newlist[index][f"sub_title{index2 + 1}"] = item.sub_title
+        newlist[index][f"info{index2 + 1}"] = item.info
+        newlist[index][f"link{index2 + 1}"] = item.link
+        if index2 % 2 == 0 and index2 != 0:
             index += 1
-            index2 = 1
+            index2 = 0
         index2 += 1
     print(newlist)
     return newlist
