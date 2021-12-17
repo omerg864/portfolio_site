@@ -3,18 +3,25 @@ from .models import Bio, Title, Skill, Education, Experience, Project
 from django.template.defaulttags import register
 from portfolio.settings import EMAIL_HOST_USER
 from django.core.mail import send_mail
+import json
 
 
 def base(request):
     bio = Bio.objects.all().first()
     titles = Title.objects.order_by("num")
+    titles_en = []
+    titles_he = []
+    for title in titles:
+        titles_en.append(title.title_en)
+        titles_he.append(title.title_he)
     skills = Skill.objects.order_by("num")
     educations = Education.objects.order_by("-year")
     experiences = Experience.objects.order_by("-year")
     projects = Project.objects.order_by("-date")
     context = {
         'bio': bio,
-        'titles': titles,
+        'titles_en': json.dumps(titles_en),
+        'titles_he': json.dumps(titles_he),
         'skills': skills,
         'educations': educations,
         'experiences': experiences,

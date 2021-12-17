@@ -537,10 +537,9 @@
 
     <script>
         //===================================== Typewriter Effect =========================
-    
-    
+    var ts = {% autoescape off %}{{ titles_en }}{% endautoescape %}
     new Typewriter('#typewriter', {
-      strings: ['Omer Gaizinger', 'Python-developer', 'Web-developer', 'Backend-developer', 'Java-developer', ''],
+      strings: ts,
       autoStart: true,
       loop: true,
       cursor: "|"
