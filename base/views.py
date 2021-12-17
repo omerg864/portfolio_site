@@ -59,6 +59,7 @@ def make_three(queryset):
         newlist[index][f"link{index2}"] = item.link
         if i % 2 == 0 and i != 0:
             index += 1
+            index2 = 1
         index2 += 1
     print(newlist)
     return newlist
