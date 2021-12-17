@@ -510,7 +510,9 @@
     </a>
 
     <script>
-        alert('{{ message }}');
+        if('{{ message }}' !== ''){
+            alert('{{ message }}');
+        }
     </script>
 
     <!-- Core -->

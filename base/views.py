@@ -12,14 +12,6 @@ def base(request):
     educations = Education.objects.all()
     experiences = Experience.objects.all()
     projects = Project.objects.all()
-    if request.method == 'POST':
-        if 'message' in request.POST:
-            message = request.POST.get('message')
-            name = request.POST.get('message-name')
-            email = request.POST.get('message-email')
-            subject = request.POST.get('message-subject')
-            send_mail(subject, f'name: {name}\n Email: {email}\n{message}', EMAIL_HOST_USER, [bio.email], fail_silently=False)
-            return render_to_response('index.html', message='Save complete')
     context = {
         'bio': bio,
         'titles': titles,
@@ -28,6 +20,18 @@ def base(request):
         'experiences': experiences,
         'projects': projects,
     }
+    if request.method == 'POST':
+        if 'message' in request.POST:
+            message = request.POST.get('message')
+            name = request.POST.get('message-name')
+            email = request.POST.get('message-email')
+            subject = request.POST.get('message-subject')
+            sent = send_mail(subject, f'name: {name}\n Email: {email}\n{message}', EMAIL_HOST_USER, [bio.email], fail_silently=False)
+            if sent = 1:
+                context["message"] = "Message sent successfully!"
+            else:
+                context["message"] = "Error: Message did not send!"
+            return render(request, "index.html", context)
     return render(request, "index.html", context)
 
 
