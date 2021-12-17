@@ -5,7 +5,7 @@
 
     /* ============ COLORS ================ */
         /* DECIDE YOUR BROWSER THEME */
-    --hue-color: 250;  /* GREEN: 144,  Blue: 230, Purple: 250, Pink: 340 */
+    --hue-color: 230;  /* GREEN: 144,  Blue: 230, Purple: 250, Pink: 340 */
 
         /* HSL Color Mode */
     --first-color: hsl(var(--hue-color), 69%, 58%);
@@ -106,7 +106,7 @@ body.dark-theme{
     --background-body-color: rgba(255, 255, 255, 0.068);
     --border-color: rgba(255, 255, 255, 0.425);
     --border-style: solid;
-    --footer-color: hsl(250, 53%, 18%);
+    --footer-color: hsl(var(--hue-color), 53%, 18%);
 
 }
 
