@@ -7,8 +7,8 @@ from django.core.mail import send_mail
 
 def base(request):
     bio = Bio.objects.all().first()
-    titles = Title.objects.all()
-    skills = Skill.objects.all()
+    titles = Title.objects.order_by("num")
+    skills = Skill.objects.order_by("num")
     educations = Education.objects.order_by("-year")
     experiences = Experience.objects.order_by("-year")
     projects = Project.objects.order_by("-date")
