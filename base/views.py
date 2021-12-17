@@ -15,13 +15,11 @@ def base(request):
     if request.method == 'POST':
         if 'message' in request.POST:
             message = request.POST.get('message')
-            print(message)
             name = request.POST.get('message-name')
             email = request.POST.get('message-email')
             subject = request.POST.get('message-subject')
-            print(EMAIL_HOST_USER)
-            print(bio.email)
-            send_mail(subject, f'{name}\n{email}\n{message}', EMAIL_HOST_USER, [bio.email], fail_silently=False)
+            send_mail(subject, f'name: {name}\n Email: {email}\n{message}', EMAIL_HOST_USER, [bio.email], fail_silently=False)
+            return render_to_response('index.html', message='Save complete')
     context = {
         'bio': bio,
         'titles': titles,
