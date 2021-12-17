@@ -21,7 +21,7 @@ def send_number_served(sender, instance, created, **kwargs):
         skills = Title.objects.filter(num__gte=instance.num)
         temp = instance.num
         for skill in skills:
-            if skill.skill_en != instance.skill_en:
+            if skill.title_en != instance.title_en:
                 skill.num = instance.num + 1
                 skill.save()
                 instance.num += 1
