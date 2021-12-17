@@ -15,7 +15,7 @@ def base(request):
         titles_en.append(title.title_en)
         titles_he.append(title.title_he)
     skills = Skill.objects.order_by("num")
-    educations = Education.objects.order_by("-year")
+    educations = make_three(Education.objects.order_by("-year"))
     experiences = Experience.objects.order_by("-year")
     projects = Project.objects.order_by("-date")
     context = {
@@ -41,9 +41,33 @@ def base(request):
             return render(request, "index.html", context)
     return render(request, "index.html", context)
 
+def make_three(queryset):
+    print(queryset)
+    newlist = []
+    for i in range(len(queryset) % 3 + 1):
+        newlist.append({"year1": "", "year2": "", "year3": "", "title1": "", "title2": "", "title3": "", "sub_title1": "", "sub_title2": "", "sub_title3": "", "info1": "", "info2": "", "info3": "", "link1": "", "link2": "", "link3": ""})
+    index = 0
+    for item in queryset:
+        print(index)
+        print(newlist)
+        print(item)
+        newlist[index]["year" + str(index + 1)] = item.year
+        newlist[index][f"title{index+1}"] = item.title
+        newlist[index][f"sub_title{index+1}"] = item.sub_title
+        newlist[index][f"info{index+1}"] = item.info
+        newlist[index][f"link{index+1}"] = item.link
+        if i % 2 == 0 and i != 0:
+            index += 1
+    print(newlist)
+    return newlist
+
 
 @register.filter
 def num_string(num):
     if num < 10 and num != 0:
         return "0" + str(num)
     return str(num)
+
+@register.filter
+def is_reminder(num):
+    return num % 2 == 0

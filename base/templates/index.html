@@ -240,62 +240,162 @@
                         <div class="qualification__button button--flex">
                             <i class="uil uil-graduation-cap qualification__icon"></i> Education
                         </div>
-
-                        <div id="education_timeline">
-                            <div class="container py-2">
-
-                                <!-- Timeline items -->
+                        <div class="edu-slider">
+                            <div class="blog-slider__wrp swiper-wrapper">
+                                
                                 {% for education in educations %}
-                                <div class="row">
-                                    <!-- Timeline design -->
-                                    <div class="col-auto text-center flex-column d-sm-flex">
-                                        <div class="row h-50 qualification__journey">
-                                            <div class="col">
-                                                <span class="qualification__line"></span>
+                                <div class="blog-slider__item swiper-slide">
+                                    <div class="blog-slider__content">
+                                        {% if education.year1 != '' %}
+                                        <div class="row">
+                                        <div class="col-auto text-center flex-column d-sm-flex">
+                                            <div class="row h-50 qualification__journey">
+                                                <div class="col">
+                                                    <span class="qualification__line"></span>
+                                                </div>
+                                                <div class="col">&nbsp;</div>
                                             </div>
-                                            <div class="col">&nbsp;</div>
-                                        </div>
-
-                                        <h5>
-                                            <span class="badge qualification__calendar">
-                                                <i class="uil uil-calendar-alt qualification__calendar-icon"></i>
-                                                {{education.year|date:"Y"}}
-                                            </span>
-                                        </h5>
-
-                                        <div class="row h-50 qualification__journey">
-                                            <div class="col">
-                                                <span class="qualification__line"></span>
+    
+                                            <h5>
+                                                <span class="badge qualification__calendar">
+                                                    <i class="uil uil-calendar-alt qualification__calendar-icon"></i>
+                                                    {{education.year1|date:"Y"}}
+                                                </span>
+                                            </h5>
+    
+                                            <div class="row h-50 qualification__journey">
+                                                <div class="col">
+                                                    <span class="qualification__line"></span>
+                                                </div>
+                                                <div class="col">&nbsp;</div>
                                             </div>
-                                            <div class="col">&nbsp;</div>
                                         </div>
-                                    </div>
-                                    <!-- Timeline content Events -->
-                                    <div class="col py-2">
-                                        <div class="card education-card transparent_card mirror-face shadow2">
-                                            <div class="card-body">
-                                                <div class="task">
-                                                    <div class="abstract">
-                                                        <div class="qualification__head">
-                                                        <h3 class="qualification__title"> {{ education.title }} </h3>
-                                                        {% if education.link != '' %}
-                                                        <a class="link_icon" href={{education.link}} target="_blank">
-                                                            <i class="uil uil-file-alt"></i>
-                                                        </a>
-                                                        {% endif %}
-                                                    </div>
-                                                        <p class="qualification__subtitle"> {{ education.sub_title }} </p>
-                                                    </div>
-                                                    <div class="details">
-                                                        <p class="qualification__subtitle"> {{ education.info }} </p>
+                                        <div class="col py-2">
+                                            <div class="card education-card transparent_card mirror-face shadow2">
+                                                <div class="card-body">
+                                                    <div class="task">
+                                                        <div class="abstract">
+                                                            <div class="qualification__head">
+                                                            <h3 class="qualification__title"> {{ education.title1 }} </h3>
+                                                            {% if education.link != '' %}
+                                                            <a class="link_icon" href={{education.link1 }} target="_blank">
+                                                                <i class="uil uil-file-alt"></i>
+                                                            </a>
+                                                            {% endif %}
+                                                        </div>
+                                                            <p class="qualification__subtitle"> {{ education.sub_title1 }} </p>
+                                                        </div>
+                                                        <div class="details">
+                                                            <p class="qualification__subtitle"> {{ education.info1 }} </p>
+                                                        </div>
                                                     </div>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
+                                    {% endif %}
+                                    {% if education.year2 != '' %}
+                                    <div class="row">
+                                        <div class="col-auto text-center flex-column d-sm-flex">
+                                            <div class="row h-50 qualification__journey">
+                                                <div class="col">
+                                                    <span class="qualification__line"></span>
+                                                </div>
+                                                <div class="col">&nbsp;</div>
+                                            </div>
+    
+                                            <h5>
+                                                <span class="badge qualification__calendar">
+                                                    <i class="uil uil-calendar-alt qualification__calendar-icon"></i>
+                                                    {{education.year2|date:"Y"}}
+                                                </span>
+                                            </h5>
+    
+                                            <div class="row h-50 qualification__journey">
+                                                <div class="col">
+                                                    <span class="qualification__line"></span>
+                                                </div>
+                                                <div class="col">&nbsp;</div>
+                                            </div>
+                                        </div>
+                                        <div class="col py-2">
+                                            <div class="card education-card transparent_card mirror-face shadow2">
+                                                <div class="card-body">
+                                                    <div class="task">
+                                                        <div class="abstract">
+                                                            <div class="qualification__head">
+                                                            <h3 class="qualification__title"> {{ education.title2 }} </h3>
+                                                            {% if education.link != '' %}
+                                                            <a class="link_icon" href={{education.link2 }} target="_blank">
+                                                                <i class="uil uil-file-alt"></i>
+                                                            </a>
+                                                            {% endif %}
+                                                        </div>
+                                                            <p class="qualification__subtitle"> {{ education.sub_title2 }} </p>
+                                                        </div>
+                                                        <div class="details">
+                                                            <p class="qualification__subtitle"> {{ education.info2 }} </p>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    {% endif %}
+                                    {% if education.year3 != '' %}
+                                    <div class="row">
+                                        <div class="col-auto text-center flex-column d-sm-flex">
+                                            <div class="row h-50 qualification__journey">
+                                                <div class="col">
+                                                    <span class="qualification__line"></span>
+                                                </div>
+                                                <div class="col">&nbsp;</div>
+                                            </div>
+    
+                                            <h5>
+                                                <span class="badge qualification__calendar">
+                                                    <i class="uil uil-calendar-alt qualification__calendar-icon"></i>
+                                                    {{education.year3|date:"Y"}}asfasfa
+                                                </span>
+                                            </h5>
+    
+                                            <div class="row h-50 qualification__journey">
+                                                <div class="col">
+                                                    <span class="qualification__line"></span>
+                                                </div>
+                                                <div class="col">&nbsp;</div>
+                                            </div>
+                                        </div>
+                                        <div class="col py-2">
+                                            <div class="card education-card transparent_card mirror-face shadow2">
+                                                <div class="card-body">
+                                                    <div class="task">
+                                                        <div class="abstract">
+                                                            <div class="qualification__head">
+                                                            <h3 class="qualification__title"> {{ education.title3 }} </h3>
+                                                            {% if education.link != '' %}
+                                                            <a class="link_icon" href={{education.link3 }} target="_blank">
+                                                                <i class="uil uil-file-alt"></i>
+                                                            </a>
+                                                            {% endif %}
+                                                        </div>
+                                                            <p class="qualification__subtitle"> {{ education.sub_title3 }} </p>
+                                                        </div>
+                                                        <div class="details">
+                                                            <p class="qualification__subtitle"> {{ education.info3 }} </p>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    {% endif %}
+                                    </div>
                                 </div>
                                 {% endfor %}
-                            </div>      
+                                
+                                <div class="blog-slider__pagination"></div>
+                            </div>
                         </div>
                     </div>
 
