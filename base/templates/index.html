@@ -276,7 +276,14 @@
                                             <div class="card-body">
                                                 <div class="task">
                                                     <div class="abstract">
+                                                        <div class="qualification__head">
                                                         <h3 class="qualification__title"> {{ education.title }} </h3>
+                                                        {% if education.link != '' %}
+                                                        <a class="link_icon" href={{education.link}} target="_blank">
+                                                            <i class="uil uil-file-alt"></i>
+                                                        </a>
+                                                        {% endif %}
+                                                    </div>
                                                         <p class="qualification__subtitle"> {{ education.sub_title }} </p>
                                                     </div>
                                                     <div class="details">
@@ -332,7 +339,14 @@
                                             <div class="card-body">
                                                 <div class="task">
                                                     <div class="abstract">
+                                                        <div class="qualification__head">
                                                         <h3 class="qualification__title"> {{ experience.title }} </h3>
+                                                        {% if experience.link != '' %}
+                                                        <a class="link_icon" href={{experience.link}} target="_blank">
+                                                            <i class="uil uil-file-alt"></i>
+                                                        </a>
+                                                        {% endif %}
+                                                    </div>
                                                         <p class="qualification__subtitle"> {{ experience.sub_title }} </p>
                                                     </div>
                                                     <div class="details">

@@ -726,6 +726,16 @@ img{
 .qualification__title{
     font-size: var(--h3-font-size);
     font-weight: var(--font-medium);
+    display: inline;
+}
+
+.link_icon{
+  display: inline;
+  margin-left: var(--mb-0-5);
+}
+.qualification__head {
+  display: flex;
+  justify-content: space-between;
 }
 
 .qualification__subtitle{
