@@ -548,8 +548,13 @@ img{
 }
 
 .about__buttons{
-    display: flex;
-    justify-content: center;
+  display: block;
+  text-align: center;
+}
+
+.about__buttons-div {
+  display: flex;
+    justify-content: space-evenly;
 }
 
 /* ===================== SKILLS ================== */

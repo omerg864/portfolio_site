@@ -183,11 +183,23 @@
                         <span class="about__info-name"> Companies <br> Worked </span>
                     </div>
                 </div>
-
+                {% if  bio.he_cv != '' %}
+                <div class="about__buttons-div">
+                {% else %}
+                <div>
+                {% endif %}
                 <div class="about__buttons">
-                    <a href="assets/file/CV.pdf" download="my_CV" target="_blank" class="button button--flex">
-                        Download CV <i class="uil uil-download-alt button__icon"></i>
+                    <a href={{bio.en_cv}} download="my_CV_en" target="_blank" class="button button--flex">
+                        Download CV (English) <i class="uil uil-download-alt button__icon"></i>
                     </a>
+                </div>
+                {% if  bio.he_cv != '' %}
+                <div class="about__buttons">
+                    <a href={{bio.he_cv}} download="my_CV_he" target="_blank" class="button button--flex">
+                        Download CV (Hebrew) <i class="uil uil-download-alt button__icon"></i>
+                    </a>
+                </div>
+                {% endif %}
                 </div>
             </div>
         </section>
