@@ -42,15 +42,14 @@ def base(request):
     return render(request, "index.html", context)
 
 def make_three(queryset):
-    print(queryset)
     newlist = []
-    for i in range(len(queryset) % 3 + 1):
+    added_num = 1
+    if len(queryset) % 3 == 0:
+        added_num = 0
+    for i in range(int(len(queryset) / 3) + added_num):
         newlist.append({"year1": "", "year2": "", "year3": "", "title1": "", "title2": "", "title3": "", "sub_title1": "", "sub_title2": "", "sub_title3": "", "info1": "", "info2": "", "info3": "", "link1": "", "link2": "", "link3": ""})
     index = 0
     for item in queryset:
-        print(index)
-        print(newlist)
-        print(item)
         newlist[index]["year" + str(index + 1)] = item.year
         newlist[index][f"title{index+1}"] = item.title
         newlist[index][f"sub_title{index+1}"] = item.sub_title
@@ -58,7 +57,6 @@ def make_three(queryset):
         newlist[index][f"link{index+1}"] = item.link
         if i % 2 == 0 and i != 0:
             index += 1
-    print(newlist)
     return newlist
 
 
