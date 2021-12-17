@@ -74,7 +74,7 @@ class Project(models.Model):
     info = models.TextField(blank=True)
     photo = models.CharField(max_length=300, blank=True)
     link = models.CharField(max_length=500, blank=True)
-    action = models.CharField(max_length=20, blank=True)
+    action = models.CharField(max_length=30, blank=True)
 
     def __str__(self):
         return self.title
