@@ -16,7 +16,7 @@ def base(request):
         titles_he.append(title.title_he)
     skills = Skill.objects.order_by("num")
     educations = make_three(Education.objects.order_by("-year"))
-    experiences = Experience.objects.order_by("-year")
+    experiences = make_three(Experience.objects.order_by("-year"))
     projects = Project.objects.order_by("-date")
     context = {
         'bio': bio,

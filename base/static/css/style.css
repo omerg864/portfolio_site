@@ -847,6 +847,7 @@ img{
 	padding: 25px;
 	border-radius: 25px;
 	height: fit-content;
+  min-height: 600px;
 	transition: all 0.3s;
   background-color: var(--background-body-color);
   border-style: var(--border-style);
@@ -874,17 +875,20 @@ img{
     .edu-slider {
       max-width: 680px;
       height: fit-content;
+      min-height: 400px;
     }
     }
     @media screen and (max-width: 768px) {
     .edu-slider {
       height: fit-content;
       margin: 180px auto;
+      min-height: 400px;
     }
     }
     @media screen and (max-height: 500px) and (min-width: 992px) {
     .edu-slider {
       height: fit-content;
+      min-height: 300px;
     }
     }
   .blog-slider__item {
