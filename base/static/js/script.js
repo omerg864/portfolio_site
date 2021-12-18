@@ -96,7 +96,7 @@ var swiper = new Swiper(".blog-slider", {
       prevEl: ".swiper-button-prev",
     },
     pagination: {
-      el: ".blog-slider__pagination",
+      el: ".edu-slider__pagination",
       clickable: true,
     },
     // mousewheel: true,
