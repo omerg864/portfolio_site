@@ -25,7 +25,9 @@
     <!-- Personal  Styling -->
     <link rel="stylesheet" href="static/css/style.css">
 
-    <link rel="icon" type="image/x-icon" href="/images/favicon.ico">
+    {% if bio.fav_icon != ""}
+    <link rel="icon" type="image/x-icon" href={{ bio.fav_icon }}>
+    {% endif %}
     
     <title>{{bio.f_name}} {{bio.l_name}}</title>
   </head>
