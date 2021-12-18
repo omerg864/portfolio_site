@@ -1196,7 +1196,7 @@ img{
   .edu-slider__pagination {
     position: absolute;
     z-index: 21;
-    right: 20px;
+    right: 0px;
     width: 11px !important;
     text-align: center;
     left: auto !important;
