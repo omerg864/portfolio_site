@@ -1078,6 +1078,7 @@ img{
     @media screen and (max-width: 576px) {
     .edu-slider__content {
       padding: 0;
+      padding-bottom: 30px;
     }
     }
     .edu-slider__content > * {
