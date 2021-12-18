@@ -870,6 +870,23 @@ img{
 	  height: 350px;
 	}
   }
+  @media screen and (max-width: 992px) {
+    .edu-slider {
+      max-width: 680px;
+      height: fit-content;
+    }
+    }
+    @media screen and (max-width: 768px) {
+    .edu-slider {
+      height: fit-content;
+      margin: 180px auto;
+    }
+    }
+    @media screen and (max-height: 500px) and (min-width: 992px) {
+    .edu-slider {
+      height: fit-content;
+    }
+    }
   .blog-slider__item {
 	display: flex;
 	align-items: center;
