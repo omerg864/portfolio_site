@@ -27,6 +27,7 @@ class Bio(models.Model):
     num_projects = models.IntegerField(default=0)
     num_works = models.IntegerField(default=0)
     title = models.CharField(max_length=30, blank=True)
+    fav_icon = models.CharField(max_length=300, blank=True)
 
     def __str__(self):
         return self.f_name + " " + self.l_name
