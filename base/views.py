@@ -51,7 +51,6 @@ def make_three(queryset):
     index = 0
     index2 = 0
     for item in queryset:
-        hit = False
         newlist[index]["year" + str(index2 + 1)] = item.year
         newlist[index][f"title{index2 + 1}"] = item.title
         newlist[index][f"sub_title{index2 + 1}"] = item.sub_title
@@ -60,9 +59,8 @@ def make_three(queryset):
         if index2 % 2 == 0 and index2 != 0:
             index += 1
             index2 = 0
-            hit = True
-        if not hit:
-            index2 += 1
+            continue
+        index2 += 1
     return newlist
 
 
