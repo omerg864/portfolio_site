@@ -1,6 +1,7 @@
 <!doctype html>
 <html lang="en">
-  <head>
+
+<head>
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -8,13 +9,16 @@
     <!-- FONTS -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Maven+Pro:wght@400;500;600&family=Poppins:wght@200;300;400;600;800&family=Roboto&family=Roboto+Mono:wght@400;500&display=swap" rel="stylesheet">
-    
+    <link
+        href="https://fonts.googleapis.com/css2?family=Maven+Pro:wght@400;500;600&family=Poppins:wght@200;300;400;600;800&family=Roboto&family=Roboto+Mono:wght@400;500&display=swap"
+        rel="stylesheet">
+
     <!-- ICONS -->
     <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
 
     <!-- Bootstrap CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 
     <!-- Argon CSS -->
     <link type="text/css" href="static/css/argon-design-system.min.css" rel="stylesheet">
@@ -26,17 +30,19 @@
     <link rel="stylesheet" href="static/css/style.css">
 
     {% if bio.fav_icon != "" %}
-    <link rel="icon" type="image/x-icon" href={{ bio.fav_icon }}>
+    <link rel="icon" type="image/x-icon" href="{{ bio.fav_icon }}">
     {% endif %}
-    
+
     <title>{{bio.f_name}} {{bio.l_name}}</title>
-  </head>
-  <body>
-<!-- ------------- HEADER -------------------->
+</head>
+
+<body>
+    <!-- ------------- HEADER -------------------->
     <header class="header" id="header">
         <nav class="nav container navbar-expand-lg">
             <a href="#" class="nav__logo navbar-brand ml-3">{{bio.f_name}} {{bio.l_name}}</a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-default" aria-controls="navbar-default" aria-expanded="false" aria-label="Toggle navigation">
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-default"
+                aria-controls="navbar-default" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
 
@@ -83,7 +89,7 @@
 
             <div class="nav__btns">
                 <!-- THEME CHANGING BUTTONS -->
-                <i data-mode= "dark" class="uil uil-moon moon-change-theme" id="theme-button"></i>
+                <i data-mode="dark" class="uil uil-moon moon-change-theme" id="theme-button"></i>
 
                 <div class="nav__toggle" id="nav-toggle">
                     <i class="uil uil-apps"></i>
@@ -92,10 +98,10 @@
         </nav>
     </header>
 
-<!-- ============== MAIN =============== -->
+    <!-- ============== MAIN =============== -->
     <main class="main">
 
-    <!-- ------------- HOME -------------------->
+        <!-- ------------- HOME -------------------->
         <section class="home section" id="home">
             <div class="home__container container grid">
 
@@ -155,7 +161,7 @@
             </div>
         </section>
 
-    <!-- ------------- ABOUT ME -------------------->
+        <!-- ------------- ABOUT ME -------------------->
         <section class="about section" id="about">
             <h2 class="section__title">About</h2>
             <span class="section__subtitle"> My Introduction </span>
@@ -166,7 +172,7 @@
                 {% endif %}
 
                 <div class="about__data">
-                    <p class="about__description" id="home-about"> 
+                    <p class="about__description" id="home-about">
                         {{ bio.introduction }}
                     </p>
                 </div>
@@ -187,28 +193,28 @@
                         <span class="about__info-name"> Companies <br> Worked </span>
                     </div>
                 </div>
-                {% if  bio.he_cv != '' %}
+                {% if bio.he_cv != '' %}
                 <div class="about__buttons-div">
-                {% else %}
-                <div>
-                {% endif %}
-                <div class="about__buttons">
-                    <a href={{bio.en_cv}} download="my_CV_en" target="_blank" class="button button--flex">
-                        Download CV (English) <i class="uil uil-download-alt button__icon"></i>
-                    </a>
+                    {% else %}
+                    <div>
+                        {% endif %}
+                        <div class="about__buttons">
+                            <a href={{bio.en_cv}} download="my_CV_en" target="_blank" class="button button--flex">
+                                Download CV (English) <i class="uil uil-download-alt button__icon"></i>
+                            </a>
+                        </div>
+                        {% if bio.he_cv != '' %}
+                        <div class="about__buttons">
+                            <a href={{bio.he_cv}} download="my_CV_he" target="_blank" class="button button--flex">
+                                Download CV (Hebrew) <i class="uil uil-download-alt button__icon"></i>
+                            </a>
+                        </div>
+                        {% endif %}
+                    </div>
                 </div>
-                {% if  bio.he_cv != '' %}
-                <div class="about__buttons">
-                    <a href={{bio.he_cv}} download="my_CV_he" target="_blank" class="button button--flex">
-                        Download CV (Hebrew) <i class="uil uil-download-alt button__icon"></i>
-                    </a>
-                </div>
-                {% endif %}
-                </div>
-            </div>
         </section>
 
-    <!-- ------------- Skills-------------------->
+        <!-- ------------- Skills-------------------->
         <section class="skills section" id="skills">
             <h2 class="section__title"> Skillset </h2>
             <span class="section__subtitle"> My skillsets </span>
@@ -231,7 +237,7 @@
                 </div>
             </div>
         </section>
-    <!-- ------------- QUALIFICATIONS (Education and Experience) -------------------->
+        <!-- ------------- QUALIFICATIONS (Education and Experience) -------------------->
         <section class="qualification section" id="qualifications">
             <h2 class="section__title"> Qualification </h2>
             <span class="section__subtitle"> My persoanl Journey </span>
@@ -246,158 +252,173 @@
                         </div>
                         <div class="edu-slider">
                             <div class="blog-slider__wrp swiper-wrapper">
-                                
+
                                 {% for education in educations %}
                                 <div class="blog-slider__item swiper-slide">
                                     <div class="edu-slider__content">
                                         {% if education.year1 != '' %}
                                         <div class="row">
-                                        <div class="col-auto text-center flex-column d-sm-flex">
-                                            <div class="row h-50 qualification__journey">
-                                                <div class="col">
-                                                    <span class="qualification__line"></span>
+                                            <div class="col-auto text-center flex-column d-sm-flex">
+                                                <div class="row h-50 qualification__journey">
+                                                    <div class="col">
+                                                        <span class="qualification__line"></span>
+                                                    </div>
+                                                    <div class="col">&nbsp;</div>
                                                 </div>
-                                                <div class="col">&nbsp;</div>
-                                            </div>
-    
-                                            <h5>
-                                                <span class="badge qualification__calendar">
-                                                    <i class="uil uil-calendar-alt qualification__calendar-icon"></i>
-                                                    {{education.year1|date:"Y"}}
-                                                </span>
-                                            </h5>
-    
-                                            <div class="row h-50 qualification__journey">
-                                                <div class="col">
-                                                    <span class="qualification__line"></span>
+
+                                                <h5>
+                                                    <span class="badge qualification__calendar">
+                                                        <i
+                                                            class="uil uil-calendar-alt qualification__calendar-icon"></i>
+                                                        {{education.year1|date:"Y"}}
+                                                    </span>
+                                                </h5>
+
+                                                <div class="row h-50 qualification__journey">
+                                                    <div class="col">
+                                                        <span class="qualification__line"></span>
+                                                    </div>
+                                                    <div class="col">&nbsp;</div>
                                                 </div>
-                                                <div class="col">&nbsp;</div>
                                             </div>
-                                        </div>
-                                        <div class="col py-2">
-                                            <div class="card education-card transparent_card mirror-face shadow2">
-                                                <div class="card-body">
-                                                    <div class="task">
-                                                        <div class="abstract">
-                                                            <div class="qualification__head">
-                                                            <h3 class="qualification__title"> {{ education.title1 }} </h3>
-                                                            {% if education.link1 != '' %}
-                                                            <a class="link_icon" href={{education.link1 }} target="_blank">
-                                                                <i class="uil uil-file-alt"></i>
-                                                            </a>
-                                                            {% endif %}
-                                                        </div>
-                                                            <p class="qualification__subtitle"> {{ education.sub_title1 }} </p>
-                                                        </div>
-                                                        <div class="details">
-                                                            <p class="qualification__subtitle"> {{ education.info1 }} </p>
+                                            <div class="col py-2">
+                                                <div class="card education-card transparent_card mirror-face shadow2">
+                                                    <div class="card-body">
+                                                        <div class="task">
+                                                            <div class="abstract">
+                                                                <div class="qualification__head">
+                                                                    <h3 class="qualification__title"> {{
+                                                                        education.title1 }} </h3>
+                                                                    {% if education.link1 != '' %}
+                                                                    <a class="link_icon" href={{education.link1 }}
+                                                                        target="_blank">
+                                                                        <i class="uil uil-file-alt"></i>
+                                                                    </a>
+                                                                    {% endif %}
+                                                                </div>
+                                                                <p class="qualification__subtitle"> {{
+                                                                    education.sub_title1 }} </p>
+                                                            </div>
+                                                            <div class="details">
+                                                                <p class="qualification__subtitle"> {{ education.info1
+                                                                    }} </p>
+                                                            </div>
                                                         </div>
                                                     </div>
                                                 </div>
                                             </div>
                                         </div>
-                                    </div>
-                                    {% endif %}
-                                    {% if education.year2 != '' %}
-                                    <div class="row">
-                                        <div class="col-auto text-center flex-column d-sm-flex">
-                                            <div class="row h-50 qualification__journey">
-                                                <div class="col">
-                                                    <span class="qualification__line"></span>
+                                        {% endif %}
+                                        {% if education.year2 != '' %}
+                                        <div class="row">
+                                            <div class="col-auto text-center flex-column d-sm-flex">
+                                                <div class="row h-50 qualification__journey">
+                                                    <div class="col">
+                                                        <span class="qualification__line"></span>
+                                                    </div>
+                                                    <div class="col">&nbsp;</div>
                                                 </div>
-                                                <div class="col">&nbsp;</div>
-                                            </div>
-    
-                                            <h5>
-                                                <span class="badge qualification__calendar">
-                                                    <i class="uil uil-calendar-alt qualification__calendar-icon"></i>
-                                                    {{education.year2|date:"Y"}}
-                                                </span>
-                                            </h5>
-    
-                                            <div class="row h-50 qualification__journey">
-                                                <div class="col">
-                                                    <span class="qualification__line"></span>
+
+                                                <h5>
+                                                    <span class="badge qualification__calendar">
+                                                        <i
+                                                            class="uil uil-calendar-alt qualification__calendar-icon"></i>
+                                                        {{education.year2|date:"Y"}}
+                                                    </span>
+                                                </h5>
+
+                                                <div class="row h-50 qualification__journey">
+                                                    <div class="col">
+                                                        <span class="qualification__line"></span>
+                                                    </div>
+                                                    <div class="col">&nbsp;</div>
                                                 </div>
-                                                <div class="col">&nbsp;</div>
                                             </div>
-                                        </div>
-                                        <div class="col py-2">
-                                            <div class="card education-card transparent_card mirror-face shadow2">
-                                                <div class="card-body">
-                                                    <div class="task">
-                                                        <div class="abstract">
-                                                            <div class="qualification__head">
-                                                            <h3 class="qualification__title"> {{ education.title2 }} </h3>
-                                                            {% if education.link2 != '' %}
-                                                            <a class="link_icon" href={{education.link2 }} target="_blank">
-                                                                <i class="uil uil-file-alt"></i>
-                                                            </a>
-                                                            {% endif %}
-                                                        </div>
-                                                            <p class="qualification__subtitle"> {{ education.sub_title2 }} </p>
-                                                        </div>
-                                                        <div class="details">
-                                                            <p class="qualification__subtitle"> {{ education.info2 }} </p>
+                                            <div class="col py-2">
+                                                <div class="card education-card transparent_card mirror-face shadow2">
+                                                    <div class="card-body">
+                                                        <div class="task">
+                                                            <div class="abstract">
+                                                                <div class="qualification__head">
+                                                                    <h3 class="qualification__title"> {{
+                                                                        education.title2 }} </h3>
+                                                                    {% if education.link2 != '' %}
+                                                                    <a class="link_icon" href={{education.link2 }}
+                                                                        target="_blank">
+                                                                        <i class="uil uil-file-alt"></i>
+                                                                    </a>
+                                                                    {% endif %}
+                                                                </div>
+                                                                <p class="qualification__subtitle"> {{
+                                                                    education.sub_title2 }} </p>
+                                                            </div>
+                                                            <div class="details">
+                                                                <p class="qualification__subtitle"> {{ education.info2
+                                                                    }} </p>
+                                                            </div>
                                                         </div>
                                                     </div>
                                                 </div>
                                             </div>
                                         </div>
-                                    </div>
-                                    {% endif %}
-                                    {% if education.year3 != '' %}
-                                    <div class="row">
-                                        <div class="col-auto text-center flex-column d-sm-flex">
-                                            <div class="row h-50 qualification__journey">
-                                                <div class="col">
-                                                    <span class="qualification__line"></span>
+                                        {% endif %}
+                                        {% if education.year3 != '' %}
+                                        <div class="row">
+                                            <div class="col-auto text-center flex-column d-sm-flex">
+                                                <div class="row h-50 qualification__journey">
+                                                    <div class="col">
+                                                        <span class="qualification__line"></span>
+                                                    </div>
+                                                    <div class="col">&nbsp;</div>
                                                 </div>
-                                                <div class="col">&nbsp;</div>
-                                            </div>
-    
-                                            <h5>
-                                                <span class="badge qualification__calendar">
-                                                    <i class="uil uil-calendar-alt qualification__calendar-icon"></i>
-                                                    {{education.year3|date:"Y"}}
-                                                </span>
-                                            </h5>
-    
-                                            <div class="row h-50 qualification__journey">
-                                                <div class="col">
-                                                    <span class="qualification__line"></span>
+
+                                                <h5>
+                                                    <span class="badge qualification__calendar">
+                                                        <i
+                                                            class="uil uil-calendar-alt qualification__calendar-icon"></i>
+                                                        {{education.year3|date:"Y"}}
+                                                    </span>
+                                                </h5>
+
+                                                <div class="row h-50 qualification__journey">
+                                                    <div class="col">
+                                                        <span class="qualification__line"></span>
+                                                    </div>
+                                                    <div class="col">&nbsp;</div>
                                                 </div>
-                                                <div class="col">&nbsp;</div>
                                             </div>
-                                        </div>
-                                        <div class="col py-2">
-                                            <div class="card education-card transparent_card mirror-face shadow2">
-                                                <div class="card-body">
-                                                    <div class="task">
-                                                        <div class="abstract">
-                                                            <div class="qualification__head">
-                                                            <h3 class="qualification__title"> {{ education.title3 }} </h3>
-                                                            {% if education.link3 != '' %}
-                                                            <a class="link_icon" href={{education.link3 }} target="_blank">
-                                                                <i class="uil uil-file-alt"></i>
-                                                            </a>
-                                                            {% endif %}
-                                                        </div>
-                                                            <p class="qualification__subtitle"> {{ education.sub_title3 }} </p>
-                                                        </div>
-                                                        <div class="details">
-                                                            <p class="qualification__subtitle"> {{ education.info3 }} </p>
+                                            <div class="col py-2">
+                                                <div class="card education-card transparent_card mirror-face shadow2">
+                                                    <div class="card-body">
+                                                        <div class="task">
+                                                            <div class="abstract">
+                                                                <div class="qualification__head">
+                                                                    <h3 class="qualification__title"> {{
+                                                                        education.title3 }} </h3>
+                                                                    {% if education.link3 != '' %}
+                                                                    <a class="link_icon" href={{education.link3 }}
+                                                                        target="_blank">
+                                                                        <i class="uil uil-file-alt"></i>
+                                                                    </a>
+                                                                    {% endif %}
+                                                                </div>
+                                                                <p class="qualification__subtitle"> {{
+                                                                    education.sub_title3 }} </p>
+                                                            </div>
+                                                            <div class="details">
+                                                                <p class="qualification__subtitle"> {{ education.info3
+                                                                    }} </p>
+                                                            </div>
                                                         </div>
                                                     </div>
                                                 </div>
                                             </div>
                                         </div>
-                                    </div>
-                                    {% endif %}
+                                        {% endif %}
                                     </div>
                                 </div>
                                 {% endfor %}
-                                
+
                                 <div class="edu-slider__pagination"></div>
                             </div>
                         </div>
@@ -411,173 +432,188 @@
 
                         <div class="edu-slider">
                             <div class="blog-slider__wrp swiper-wrapper">
-                                
+
                                 {% for experience in experiences %}
                                 <div class="blog-slider__item swiper-slide">
                                     <div class="edu-slider__content">
                                         {% if experience.year1 != '' %}
                                         <div class="row">
-                                        <div class="col-auto text-center flex-column d-sm-flex">
-                                            <div class="row h-50 qualification__journey">
-                                                <div class="col">
-                                                    <span class="qualification__line"></span>
+                                            <div class="col-auto text-center flex-column d-sm-flex">
+                                                <div class="row h-50 qualification__journey">
+                                                    <div class="col">
+                                                        <span class="qualification__line"></span>
+                                                    </div>
+                                                    <div class="col">&nbsp;</div>
                                                 </div>
-                                                <div class="col">&nbsp;</div>
-                                            </div>
-    
-                                            <h5>
-                                                <span class="badge qualification__calendar">
-                                                    <i class="uil uil-calendar-alt qualification__calendar-icon"></i>
-                                                    {{experience.year1|date:"Y"}}
-                                                </span>
-                                            </h5>
-    
-                                            <div class="row h-50 qualification__journey">
-                                                <div class="col">
-                                                    <span class="qualification__line"></span>
+
+                                                <h5>
+                                                    <span class="badge qualification__calendar">
+                                                        <i
+                                                            class="uil uil-calendar-alt qualification__calendar-icon"></i>
+                                                        {{experience.year1|date:"Y"}}
+                                                    </span>
+                                                </h5>
+
+                                                <div class="row h-50 qualification__journey">
+                                                    <div class="col">
+                                                        <span class="qualification__line"></span>
+                                                    </div>
+                                                    <div class="col">&nbsp;</div>
                                                 </div>
-                                                <div class="col">&nbsp;</div>
                                             </div>
-                                        </div>
-                                        <div class="col py-2">
-                                            <div class="card education-card transparent_card mirror-face shadow2">
-                                                <div class="card-body">
-                                                    <div class="task">
-                                                        <div class="abstract">
-                                                            <div class="qualification__head">
-                                                            <h3 class="qualification__title"> {{ experience.title1 }} </h3>
-                                                            {% if experience.link1 != '' %}
-                                                            <a class="link_icon" href={{experience.link1 }} target="_blank">
-                                                                <i class="uil uil-file-alt"></i>
-                                                            </a>
-                                                            {% endif %}
-                                                        </div>
-                                                            <p class="qualification__subtitle"> {{ experience.sub_title1 }} </p>
-                                                        </div>
-                                                        <div class="details">
-                                                            <p class="qualification__subtitle"> {{ experience.info1 }} </p>
+                                            <div class="col py-2">
+                                                <div class="card education-card transparent_card mirror-face shadow2">
+                                                    <div class="card-body">
+                                                        <div class="task">
+                                                            <div class="abstract">
+                                                                <div class="qualification__head">
+                                                                    <h3 class="qualification__title"> {{
+                                                                        experience.title1 }} </h3>
+                                                                    {% if experience.link1 != '' %}
+                                                                    <a class="link_icon" href={{experience.link1 }}
+                                                                        target="_blank">
+                                                                        <i class="uil uil-file-alt"></i>
+                                                                    </a>
+                                                                    {% endif %}
+                                                                </div>
+                                                                <p class="qualification__subtitle"> {{
+                                                                    experience.sub_title1 }} </p>
+                                                            </div>
+                                                            <div class="details">
+                                                                <p class="qualification__subtitle"> {{ experience.info1
+                                                                    }} </p>
+                                                            </div>
                                                         </div>
                                                     </div>
                                                 </div>
                                             </div>
                                         </div>
-                                    </div>
-                                    {% endif %}
-                                    {% if experience.year2 != '' %}
-                                    <div class="row">
-                                        <div class="col-auto text-center flex-column d-sm-flex">
-                                            <div class="row h-50 qualification__journey">
-                                                <div class="col">
-                                                    <span class="qualification__line"></span>
+                                        {% endif %}
+                                        {% if experience.year2 != '' %}
+                                        <div class="row">
+                                            <div class="col-auto text-center flex-column d-sm-flex">
+                                                <div class="row h-50 qualification__journey">
+                                                    <div class="col">
+                                                        <span class="qualification__line"></span>
+                                                    </div>
+                                                    <div class="col">&nbsp;</div>
                                                 </div>
-                                                <div class="col">&nbsp;</div>
-                                            </div>
-    
-                                            <h5>
-                                                <span class="badge qualification__calendar">
-                                                    <i class="uil uil-calendar-alt qualification__calendar-icon"></i>
-                                                    {{experience.year2|date:"Y"}}
-                                                </span>
-                                            </h5>
-    
-                                            <div class="row h-50 qualification__journey">
-                                                <div class="col">
-                                                    <span class="qualification__line"></span>
+
+                                                <h5>
+                                                    <span class="badge qualification__calendar">
+                                                        <i
+                                                            class="uil uil-calendar-alt qualification__calendar-icon"></i>
+                                                        {{experience.year2|date:"Y"}}
+                                                    </span>
+                                                </h5>
+
+                                                <div class="row h-50 qualification__journey">
+                                                    <div class="col">
+                                                        <span class="qualification__line"></span>
+                                                    </div>
+                                                    <div class="col">&nbsp;</div>
                                                 </div>
-                                                <div class="col">&nbsp;</div>
                                             </div>
-                                        </div>
-                                        <div class="col py-2">
-                                            <div class="card education-card transparent_card mirror-face shadow2">
-                                                <div class="card-body">
-                                                    <div class="task">
-                                                        <div class="abstract">
-                                                            <div class="qualification__head">
-                                                            <h3 class="qualification__title"> {{ experience.title2 }} </h3>
-                                                            {% if experience.link2 != '' %}
-                                                            <a class="link_icon" href={{experience.link2 }} target="_blank">
-                                                                <i class="uil uil-file-alt"></i>
-                                                            </a>
-                                                            {% endif %}
-                                                        </div>
-                                                            <p class="qualification__subtitle"> {{ experience.sub_title2 }} </p>
-                                                        </div>
-                                                        <div class="details">
-                                                            <p class="qualification__subtitle"> {{ experience.info2 }} </p>
+                                            <div class="col py-2">
+                                                <div class="card education-card transparent_card mirror-face shadow2">
+                                                    <div class="card-body">
+                                                        <div class="task">
+                                                            <div class="abstract">
+                                                                <div class="qualification__head">
+                                                                    <h3 class="qualification__title"> {{
+                                                                        experience.title2 }} </h3>
+                                                                    {% if experience.link2 != '' %}
+                                                                    <a class="link_icon" href={{experience.link2 }}
+                                                                        target="_blank">
+                                                                        <i class="uil uil-file-alt"></i>
+                                                                    </a>
+                                                                    {% endif %}
+                                                                </div>
+                                                                <p class="qualification__subtitle"> {{
+                                                                    experience.sub_title2 }} </p>
+                                                            </div>
+                                                            <div class="details">
+                                                                <p class="qualification__subtitle"> {{ experience.info2
+                                                                    }} </p>
+                                                            </div>
                                                         </div>
                                                     </div>
                                                 </div>
                                             </div>
                                         </div>
-                                    </div>
-                                    {% endif %}
-                                    {% if experience.year3 != '' %}
-                                    <div class="row">
-                                        <div class="col-auto text-center flex-column d-sm-flex">
-                                            <div class="row h-50 qualification__journey">
-                                                <div class="col">
-                                                    <span class="qualification__line"></span>
+                                        {% endif %}
+                                        {% if experience.year3 != '' %}
+                                        <div class="row">
+                                            <div class="col-auto text-center flex-column d-sm-flex">
+                                                <div class="row h-50 qualification__journey">
+                                                    <div class="col">
+                                                        <span class="qualification__line"></span>
+                                                    </div>
+                                                    <div class="col">&nbsp;</div>
                                                 </div>
-                                                <div class="col">&nbsp;</div>
-                                            </div>
-    
-                                            <h5>
-                                                <span class="badge qualification__calendar">
-                                                    <i class="uil uil-calendar-alt qualification__calendar-icon"></i>
-                                                    {{experience.year3|date:"Y"}}
-                                                </span>
-                                            </h5>
-    
-                                            <div class="row h-50 qualification__journey">
-                                                <div class="col">
-                                                    <span class="qualification__line"></span>
+
+                                                <h5>
+                                                    <span class="badge qualification__calendar">
+                                                        <i
+                                                            class="uil uil-calendar-alt qualification__calendar-icon"></i>
+                                                        {{experience.year3|date:"Y"}}
+                                                    </span>
+                                                </h5>
+
+                                                <div class="row h-50 qualification__journey">
+                                                    <div class="col">
+                                                        <span class="qualification__line"></span>
+                                                    </div>
+                                                    <div class="col">&nbsp;</div>
                                                 </div>
-                                                <div class="col">&nbsp;</div>
                                             </div>
-                                        </div>
-                                        <div class="col py-2">
-                                            <div class="card education-card transparent_card mirror-face shadow2">
-                                                <div class="card-body">
-                                                    <div class="task">
-                                                        <div class="abstract">
-                                                            <div class="qualification__head">
-                                                            <h3 class="qualification__title"> {{ experience.title3 }} </h3>
-                                                            {% if experience.link3 != '' %}
-                                                            <a class="link_icon" href={{experience.link3 }} target="_blank">
-                                                                <i class="uil uil-file-alt"></i>
-                                                            </a>
-                                                            {% endif %}
-                                                        </div>
-                                                            <p class="qualification__subtitle"> {{ experience.sub_title3 }} </p>
-                                                        </div>
-                                                        <div class="details">
-                                                            <p class="qualification__subtitle"> {{ experience.info3 }} </p>
+                                            <div class="col py-2">
+                                                <div class="card education-card transparent_card mirror-face shadow2">
+                                                    <div class="card-body">
+                                                        <div class="task">
+                                                            <div class="abstract">
+                                                                <div class="qualification__head">
+                                                                    <h3 class="qualification__title"> {{
+                                                                        experience.title3 }} </h3>
+                                                                    {% if experience.link3 != '' %}
+                                                                    <a class="link_icon" href={{experience.link3 }}
+                                                                        target="_blank">
+                                                                        <i class="uil uil-file-alt"></i>
+                                                                    </a>
+                                                                    {% endif %}
+                                                                </div>
+                                                                <p class="qualification__subtitle"> {{
+                                                                    experience.sub_title3 }} </p>
+                                                            </div>
+                                                            <div class="details">
+                                                                <p class="qualification__subtitle"> {{ experience.info3
+                                                                    }} </p>
+                                                            </div>
                                                         </div>
                                                     </div>
                                                 </div>
                                             </div>
                                         </div>
-                                    </div>
-                                    {% endif %}
+                                        {% endif %}
                                     </div>
                                 </div>
                                 {% endfor %}
-                                
+
                                 <div class="edu-slider__pagination"></div>
                             </div>
                         </div>
+                    </div>
                 </div>
-            </div>
         </section>
 
-    <!-- ------------- PORTFOLIO -------------------->
+        <!-- ------------- PORTFOLIO -------------------->
         <section class="portfolio section" id="portfolio">
             <h2 class="section__title">Portfolio</h2>
             <span class="section__subtitle"> A Few Projects </span>
 
             <div class="blog-slider">
                 <div class="blog-slider__wrp swiper-wrapper">
-                    
+
                     <!-- For portfolio items -->
                     {% for project in projects %}
                     <div class="blog-slider__item swiper-slide">
@@ -589,21 +625,21 @@
                             <span class="blog-slider__code"> {{ project.date|date:"F, Y"}}</span>
                             <div class="blog-slider__title"> {{ project.title}} </div>
                             <div class="blog-slider__text"> {{ project.info }}</div>
-                            <a href={{ project.link }} target="_blank" class="button blog-slider__button button--flex"> 
+                            <a href={{ project.link }} target="_blank" class="button blog-slider__button button--flex">
                                 {{ project.action }}
                                 <i class="uil uil-play button__icon"></i>
                             </a>
                         </div>
                     </div>
                     {% endfor %}
-                    
+
                     <div class="blog-slider__pagination"></div>
                 </div>
             </div>
 
         </section>
 
-    <!-- ------------- CONTACT US -------------------->
+        <!-- ------------- CONTACT US -------------------->
         <section class="contact section" id="contact">
             <h2 class="section__title"> Contact Me </h2>
             <span class="section__subtitle"> Get in touch</span>
@@ -646,16 +682,20 @@
                         {% csrf_token %}
                         <div class="row">
                             <div class="col-lg-6">
-                                <input type="text" name="message-name" class="form-control form__color mb-30 cf" placeholder="Your Name">
-                            </div> 
+                                <input type="text" name="message-name" class="form-control form__color mb-30 cf"
+                                    placeholder="Your Name">
+                            </div>
                             <div class="col-lg-6">
-                                <input type="email" name="message-email" class="form-control form__color mb-30 cf" placeholder="Your Email">
+                                <input type="email" name="message-email" class="form-control form__color mb-30 cf"
+                                    placeholder="Your Email">
                             </div>
                             <div class="col-12">
-                                <input type="text" name="message-subject" class="form-control form__color mb-30 cf" placeholder="Subject">
+                                <input type="text" name="message-subject" class="form-control form__color mb-30 cf"
+                                    placeholder="Subject">
                             </div>
                             <div class="col-12">
-                                <textarea name="message" class="form-control form__color mb-30 cf" cols="30" rows="5" placeholder="Your Message"></textarea>
+                                <textarea name="message" class="form-control form__color mb-30 cf" cols="30" rows="5"
+                                    placeholder="Your Message"></textarea>
                             </div>
                             <div class="col-12">
                                 <button type="submit" class="button button--flex send-message form_button">
@@ -670,7 +710,7 @@
         </section>
     </main>
 
-<!-- ------------- FOOTER -------------------->
+    <!-- ------------- FOOTER -------------------->
     <footer class="footer">
         <div class="footer__bg">
             <div class="footer__container container grid">
@@ -734,26 +774,26 @@
             <p class="footer__copy">&#169; OG. All rights reserved</p>
         </div>
     </footer>
-  
 
-<!-- ------------- SCROLL TOP -------------------->
+
+    <!-- ------------- SCROLL TOP -------------------->
     <a href="#" class="scrollup" id="scroll-up">
         <i class="uil uil-arrow-up scrollup__icon"></i>
     </a>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 
     <script>
-        window.onload = function(){
-        if('{{ message }}' !== ''){
-            alert('{{ message }}');
-        }
-        $('.skills-text').each(function(){
-            while ($(this).width() > 140){
-                $(this).css("font-size", parseInt($(this).css("font-size")) - 1)
-                console.log($(this).width())
+        window.onload = function () {
+            if ('{{ message }}' !== '') {
+                alert('{{ message }}');
             }
-        });
-    }
+            $('.skills-text').each(function () {
+                while ($(this).width() > 140) {
+                    $(this).css("font-size", parseInt($(this).css("font-size")) - 1)
+                    console.log($(this).width())
+                }
+            });
+        }
     </script>
 
     <!-- Core -->
@@ -769,20 +809,21 @@
 
     <script>
         //===================================== Typewriter Effect =========================
-    var ts = {% autoescape off %}{{ titles_en }}{% endautoescape %}
-    new Typewriter('#typewriter', {
-      strings: ts,
-      autoStart: true,
-      loop: true,
-      cursor: "|"
-    });
-    console.log("Typewriter effect is working!")
+        var ts = {% autoescape off %}{ { titles_en } } {% endautoescape %}
+        new Typewriter('#typewriter', {
+            strings: ts,
+            autoStart: true,
+            loop: true,
+            cursor: "|"
+        });
+        console.log("Typewriter effect is working!")
     </script>
-    
+
     <!-- Swiper JS -->
     <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
 
     <!-- Self Script -->
     <script src="static/js/script.js"></script>
-  </body>
+</body>
+
 </html>
