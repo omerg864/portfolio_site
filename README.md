@@ -56,12 +56,29 @@ python manage.py migrate
 python manage.py createsuperuser
 ```
 
-7. Run the development server.
+7. Configure the environment variables:
+
+- `DEBUG_VALUE`: Set to `True` to enable debug mode in development or `False` in production.
+- `PORTFOLIO_SECRET_KEY`: A secure django framework string used for hashing passwords, session keys, and other security-related settings.
+- `EMAIL_HOST_USER_PORTFOLIO`: Email address to send emails using the contact form
+- `EMAIL_HOST_PASSWORD_PORTFOLIO`: Email's password to access the service
+
+You can either set these environment variables in your operating system's environment or create a `.env` file in the project root directory with the following format:
+
+```
+DEBUG_VALUE=True
+PORTFOLIO_SECRET_KEY=mysecretkey
+EMAIL_HOST_USER_PORTFOLIO=test@gmail.com
+EMAIL_HOST_PASSWORD_PORTFOLIO=password123
+```
+Note: Make sure to keep the `.env` file secret and never commit it to version control.
+
+8. Run the development server.
 ```bash
 python manage.py runserver
 ```
 
-8. Access the website in your web browser at http://localhost:8000/.
+9. Access the website in your web browser at http://localhost:8000/.
 
 ## Contributing
 
